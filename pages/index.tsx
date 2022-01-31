@@ -1,71 +1,92 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import { useRouter } from 'next/router'
+import { useState, FormEvent, ChangeEventHandler } from 'react'
+import { MarkGithubIcon } from '@primer/octicons-react'
+import styled from 'styled-components'
+import { theme, mixins } from '../styles'
+import Head from '../components/Head'
+
+const Container = styled.div`
+  ${mixins.flexCenter};
+  background-color: ${theme.colors.black};
+  background-image: linear-gradient(
+    ${theme.colors.black} 0%,
+    ${theme.colors.darkGrey} 100%
+  );
+  color: ${theme.colors.offWhite};
+  height: 100vh;
+
+  form {
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 2rem;
+    margin-bottom: 20vh;
+    max-width: 600px;
+    text-align: center;
+
+    svg {
+      color: ${theme.colors.blue};
+    }
+
+    label {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin: 2rem;
+      color: ${theme.colors.offWhite};
+    }
+
+    input {
+      background-color: #26303c;
+      outline: 0;
+      border: 0;
+      border-radius: 0.25rem;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 1rem;
+      color: ${theme.colors.lightBlue};
+      font-family: ${theme.fonts.mono};
+      font-size: 2rem;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+`
 
 const Home: NextPage = () => {
+  const router = useRouter()
+  const [username, setUsername] = useState('')
+
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) =>
+    setUsername(e.currentTarget.value)
+
+  const submit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    router.push({
+      pathname: '/user',
+      query: {
+        id: username,
+      },
+    })
+  }
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Github Portfolio</title>
-        <meta name="description" content="Github Portfolio app with Next.js" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
+    <>
+      <Head title="Github Portfolio" />
+      <Container>
+        <form onSubmit={submit}>
+          <MarkGithubIcon size="large" />
+          <label htmlFor="username">Search GitHub User</label>
+          <input
+            name="username"
+            type="text"
+            onChange={handleChange}
+            placeholder="Enter username"
+          />
+        </form>
+      </Container>
+    </>
   )
 }
 

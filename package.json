@@ -11,11 +11,14 @@
     "@primer/octicons-react": "^16.2.0",
     "@types/chart.js": "^2.9.35",
     "@types/styled-components": "^5.1.21",
+    "axios": "^0.25.0",
+    "chart.js": "^3.7.0",
     "gh-polyglot": "^2.3.3",
     "next": "12.0.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-flip-move": "^3.0.4"
+    "react-flip-move": "^3.0.4",
+    "react-use-refs": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "16.11.7",

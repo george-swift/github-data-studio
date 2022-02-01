@@ -28,15 +28,10 @@ const User = () => {
   const baseURL = 'https://api.github.com'
 
   const getUserData = useCallback(async () => {
-    try {
-      const { data, status } = await axios.get(`${baseURL}/users/${username}`)
-      if (status === 404) return setError({ active: true, type: 404 })
-      if (status === 403) return setError({ active: true, type: 403 })
-      setUserData(data)
-    } catch (error) {
-      setError({ active: true, type: 400 })
-      console.error('Error:', error)
-    }
+    const { data, status } = await axios.get(`${baseURL}/users/${username}`)
+    if (status === 404 || status === 403)
+      return setError({ active: true, type: status })
+    setUserData(data)
   }, [username])
 
   const getLangData = useCallback(() => {
@@ -51,17 +46,12 @@ const User = () => {
   }, [username])
 
   const getRepoData = useCallback(async () => {
-    try {
-      const { data, status } = await axios.get(
-        `${baseURL}/users/${username}/repos?per_page=100`
-      )
-      if (status === 404) return setError({ active: true, type: 404 })
-      if (status === 403) return setError({ active: true, type: 403 })
-      setRepoData(data)
-    } catch (error) {
-      setError({ active: true, type: 400 })
-      console.error('Error:', error)
-    }
+    const { data, status } = await axios.get(
+      `${baseURL}/users/${username}/repos?per_page=100`
+    )
+    if (status === 404 || status === 403)
+      return setError({ active: true, type: status })
+    setRepoData(data)
   }, [username])
 
   const watchRateLimit = async () => {
@@ -74,11 +64,20 @@ const User = () => {
     if (core.remaining < 1) setError({ active: true, type: 403 })
   }
 
+  const catchErrors = (fn: () => Promise<void>) =>
+    fn().catch((err) => {
+      setError({ active: true, type: 400 })
+      console.error('Error:', err)
+    })
+
   useEffect(() => {
     watchRateLimit()
     getUserData()
     getLangData()
     getRepoData()
+
+    catchErrors(getUserData)
+    catchErrors(getRepoData)
   }, [getLangData, getRepoData, getUserData])
 
   return (

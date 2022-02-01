@@ -63,6 +63,7 @@ const Home: NextPage = () => {
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!username) return
     router.push({
       pathname: '/user',
       query: {
@@ -79,10 +80,12 @@ const Home: NextPage = () => {
           <MarkGithubIcon size="large" />
           <label htmlFor="username">Search GitHub User</label>
           <input
+            id="username"
             name="username"
             type="text"
             onChange={handleChange}
             placeholder="Enter username"
+            required
           />
         </form>
       </Container>

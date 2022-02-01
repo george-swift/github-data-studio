@@ -1,11 +1,10 @@
 import { MarkGithubIcon } from '@primer/octicons-react'
 import { Head } from '../components'
+import { ErrorObject } from '../utils/shared'
 import AlertStyles from './styles/AlertStyles'
 
 interface AlertProps {
-  error: {
-    type: number
-  }
+  error: ErrorObject
 }
 
 const Alert = ({ error }: AlertProps) => (

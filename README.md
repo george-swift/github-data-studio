@@ -12,7 +12,9 @@
 
 ## Getting Started
 - Clone this project by running `git clone https://github.com/george-swift/github-portfolio.git`
-- Next, run the development server:
+- Run `npm install` to download dependencies
+- To check the tests `npm test`
+- Finally, to run the development server:
 
 ```bash
 npm run dev

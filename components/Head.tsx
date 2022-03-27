@@ -7,8 +7,8 @@ type HeadProps = {
   image?: string
 }
 
-const defaultDescription = 'Look up profiles on GitHub'
-const defaultUrl = 'https://github-portfolio-4zk9q51vq-george-swift.vercel.app/'
+const defaultDescription = 'Look up account metrics on GitHub'
+const defaultUrl = 'https://github-portfolio-nine.vercel.app/'
 const defaultImage = '/gh.png'
 
 const Head = ({ title, desc, url, image }: HeadProps) => (

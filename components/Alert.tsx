@@ -9,9 +9,9 @@ interface AlertProps {
 
 const Alert = ({ error }: AlertProps) => (
   <AlertStyles>
-    <Head title="Github Portfolio" />
+    <Head title="Github Data Studio" />
     <MarkGithubIcon size="large" />
-    <h1>Github Porfolio</h1>
+    <h1>Github Data Studio</h1>
     {error && (
       <div>
         {error.type === 403 ? (

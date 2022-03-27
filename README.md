@@ -1,11 +1,10 @@
-# Github Portfolio
+# Github Data Studio
+Provides value-added processing and data visualisations for GitHub account metrics
 
 ## Live Link
-
 [Click here to visit](https://github-portfolio-nine.vercel.app/)
 
 ## Built With
-
 - TypeScript
 - Next.js
 - Chart.js
@@ -14,9 +13,10 @@
 - Styled Components
 
 ## Getting Started
-
 - Clone this project by running `git clone https://github.com/george-swift/github-data-studio.git`
-- Next, run the development server:
+- Run `npm install` to download dependencies
+- To check the tests `npm test`
+- Finally, to run the development server:
 
 ```bash
 npm run dev
@@ -38,3 +38,5 @@ yarn dev
 - LinkedIn: [Ubong George](https://www.linkedin.com/in/ubong-itok)
 - Twitter: [@\_\_pragmaticdev](https://twitter.com/__pragmaticdev)
 - GitHub: [@george-swift](https://github.com/george-swift)
+
+

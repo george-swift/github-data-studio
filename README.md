@@ -1,4 +1,6 @@
-# Github Portfolio
+# Github Data Studio
+Provides value-added processing and data visualisations for GitHub account metrics
+
 ## Live Link
 [Click here to visit](https://github-portfolio-nine.vercel.app/)
 
@@ -11,7 +13,7 @@
 - Styled Components
 
 ## Getting Started
-- Clone this project by running `git clone https://github.com/george-swift/github-portfolio.git`
+- Clone this project by running `git clone https://github.com/george-swift/github-data-studio.git`
 - Run `npm install` to download dependencies
 - To check the tests `npm test`
 - Finally, to run the development server:
@@ -26,5 +28,15 @@ yarn dev
 
 ## Acknowledgments
 
-- [Brittany Chiang](https://octoprofile.now.sh/)
+- [Designed by Brittany Chiang](https://brittanychiang.com/)
 - [Next.js Documentation](https://nextjs.org/docs)
+
+## Authors
+
+👤 &nbsp; **Ubong George**
+
+- LinkedIn: [Ubong George](https://www.linkedin.com/in/ubong-itok)
+- Twitter: [@\_\_pragmaticdev](https://twitter.com/__pragmaticdev)
+- GitHub: [@george-swift](https://github.com/george-swift)
+
+

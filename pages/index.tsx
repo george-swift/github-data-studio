@@ -74,7 +74,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head title="Github Portfolio" />
+      <Head title="Github Data Studio" />
       <Container>
         <form onSubmit={submit}>
           <MarkGithubIcon size="large" />
